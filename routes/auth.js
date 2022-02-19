@@ -15,7 +15,6 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/signup", isLoggedOut, (req, res) => {
-  console.log("hey")
   res.render("auth/signup");
 });
 
