@@ -9,11 +9,38 @@
       <link rel="stylesheet" href="/stylesheets/style.css" />
    </head>
 
-   <body>
-      <main>
-         {{{body}}}
-      </main>
-      <script src="/js/script.js"></script>
-   </body>
+  <body>
+    <nav>
+      <ul>
+        <li id='to-left'>
+          <p><a href='/'>Home</a></p>
+        </li>
+        {{#unless user}}
+        <li id='to-right'>
+          <p><a href='/auth/signup'>Signup</a></p>
+        </li>
+        <li id='to-right'>
+          <p><a href='/auth/login'>Login</a></p>
+        </li>
+        {{/unless}}
+
+        
+        {{#if user}}
+        <form action='/auth/logout' method='post'>
+          <button>Logout</button></form>
+         {{/if}}
+      </ul>
+    </nav> 
+
+
+   <h1>Welcome to the Booth!</h1>
+   <p>Build relationships based on music.</p>
+
+
+
+    {{{body}}}
+
+    <script src='/js/script.js'></script>
+  </body>
 
 </html>

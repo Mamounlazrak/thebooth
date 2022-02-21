@@ -1,0 +1,23 @@
+<form action="/user/onboarding" method="POST" enctype="multipart/form-data">
+   <label> Profile picture
+      <input type="file" name="profile_picture">
+   </label>
+   <label> Location
+      <input type="text" name="location">
+   </label>
+   <label> Music genre
+      <input type="text" name="music_genre">
+   </label>
+   <label> Favourite artist
+      <input type="text" name="fav_artist">
+   </label>
+   <input type="hidden" name="userId" value="{{userId}}">
+
+   
+
+   <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}

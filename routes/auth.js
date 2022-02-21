@@ -10,15 +10,17 @@ const saltRounds = 10;
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
 
-// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
-const isLoggedOut = require("../middleware/isLoggedOut");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const fileUploader = require('../config/cloudinary.config');
 
-router.get("/signup", isLoggedOut, (req, res) => {
+
+// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
+
+
+router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", (req, res) => {
   const { username, password } = req.body;
 
   if (!username) {
@@ -68,7 +70,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.render("user/onboarding");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -89,11 +91,19 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
-router.get("/login", isLoggedOut, (req, res) => {
+// router.get('/onboarding', (req, res, next) => {
+//   res.render('auth/onboarding');
+// })
+
+
+
+// router.get('/')
+
+router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
-router.post("/login", isLoggedOut, (req, res, next) => {
+router.post("/login", (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username) {
@@ -141,7 +151,23 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-router.get("/logout", isLoggedIn, (req, res) => {
+// router.post('/onboarding', fileUploader.single('profile_picture'), (req, res, next) => {
+//   const {location, music_genre, fav_artist, userId} = req.body;
+//   console.log(userId);
+//   console.log(location);
+//   console.log(music_genre);
+//   console.log(fav_artist);
+
+//   User.findByIdAndUpdate(userId, {location, avatar: req.file.path, genres: music_genre, favArtist: fav_artist})
+//     .then(() => {
+//         console.log('hey');
+//       res.redirect(`/home/${userId}`);
+//     })
+//     .catch((err) => console.log(err));
+// })
+
+
+router.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res
