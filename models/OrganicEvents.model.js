@@ -15,7 +15,7 @@ const OrganicEvents = new Schema(
     entry: { type: String, required: true},
     picture: { type: String, default: 'images/default-avatar.png'
     },
-    attendees: [{type: Schema.Types.ObjectId, ref: 'User' }],
+    attendees: [],
     comments: [], 
   },
   {
