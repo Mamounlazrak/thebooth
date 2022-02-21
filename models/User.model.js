@@ -16,7 +16,13 @@ const userSchema = new Schema(
     },
     password: { type: String, 
       required: true
-    }
+    },
+    connections: [],
+    organicEvents: [],
+    genres: { type: String},
+    favArtist: { type: String },
+    festivals: { type: String },
+    venues: { type: String }, 
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
