@@ -6,19 +6,17 @@ const OrganicEvents = new Schema(
   {
     title: { type: String, required: true},
     date: {type: Number, required: true},
+    eventCreater: {type: Schema.Types.ObjectId, ref: 'User' },
     location: {City: String, Venue: String, required: true},
     duration: Number,
-    Genre: String,
+    Genre: { type: String, required: true},
     performingArtist: String,
-    description: String,
+    description: { type: String, required: true},
+    entry: { type: String, required: true},
     picture: { type: String, default: 'images/default-avatar.png'
     },
-    connections: [],
-    organicEvents: [],
-    genres: { type: String},
-    favArtist: { type: String },
-    festivals: { type: String },
-    venues: { type: String }, 
+    attendees: [{type: Schema.Types.ObjectId, ref: 'User' }],
+    comments: [], 
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
