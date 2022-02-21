@@ -3,9 +3,9 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-    firstName: { type: String, required: true},
-    lastName: {type: String, required: true},
-    location: {type: String, required: true},
+    firstName: String,
+    lastName: String,
+    location: String,
     description: String,
     avatar: { type: String,
               default: 'images/default-avatar.png'
