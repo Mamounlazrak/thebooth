@@ -15,7 +15,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     allowed_formats: ['jpg', 'png'],
-    folder: 'CLOUDINARY_URL=cloudinary://592361695578146:BACWaOWGREc8ZObZLw-CQl9Oq6g@ddjyf8m1q' // The name of the folder in cloudinary
+    folder: 'theBoothApp' // The name of the folder in cloudinary
     // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
   }
 });
