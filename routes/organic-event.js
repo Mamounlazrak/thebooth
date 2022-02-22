@@ -31,25 +31,74 @@ router.post('/create', fileUploader.single('eventImage'), (req, res, next) => {
     }
 })
 
-router.get('/list', (req, res, next) => {
-    OrgEvents.find()
+router.get('/my-list', (req, res, next) => {
+    OrgEvents.find({eventCreator: req.app.locals.user._id})
         .populate('eventCreator')
         .then((eventsList) => {
-            res.render('organic-event/list', {events: eventsList})
+            res.render('organic-event/my-list', {events: eventsList})
         })
         .catch((err) => next(err));
 })
 
-router.get('/:eventId', (req, res, next) => {
+router.get('/full-list', (req, res, next) => {
+    OrgEvents.find()
+        .populate('eventCreator')
+        .then((eventsList) => {
+            res.render('organic-event/full-list', {events: eventsList})
+        })
+        .catch((err) => next(err));
+})
+
+router.get('/my-list/:eventId', (req, res, next) => {
     const {eventId} = req.params;
     
     OrgEvents.findById(eventId)
         .populate('eventCreator')
         .then((foundEvent) => {
-            res.render('organic-event/details', foundEvent)
+            res.render('organic-event/my-list-details', foundEvent)
         })
         .catch((err) => next(err));
 
+})
+
+
+router.get('/edit/:eventId', (req, res, next) => {
+    const {eventId} = req.params; 
+    OrgEvents.findById(eventId)
+        .then((foundEvent) => {
+            res.render('organic-event/edit', foundEvent)
+        })
+        .catch((err) => next(err));
+})
+
+
+router.post('/edit/:eventId', (req, res, next) => {
+    const {eventId} = req.params;
+    console.log(eventId);
+    
+    const {title, date, location, genre, description} = req.body;
+    console.log(title);
+
+    if (req.file) {
+
+    } else {
+        OrgEvents.findByIdAndUpdate(eventId, {title, date, location, genre, description})
+            .then((editedEvent) => {
+                // console.log(eventId);
+                // console.log(editedEvent);
+                res.redirect('/organic-event/my-list')
+            })
+            .catch((err) => next(err));
+    }
+})
+
+router.post('/delete/:eventId', (req, res, next) => {
+    const {eventId} = req.params;
+    OrgEvents.findByIdAndDelete(eventId)
+        .then(() => {
+            res.redirect('/organic-event/my-list')
+        })
+        .catch((err) => next(err));
 })
 
 module.exports = router;

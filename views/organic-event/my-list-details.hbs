@@ -1,0 +1,15 @@
+<h2>{{title}} by {{eventCreator.username}}</h2>
+<p>Date: {{date}}</p>
+<p>Location: {{location}}</p>
+<p>Music genre: {{genre}}</p>
+<p>Description: {{description}}</p>
+
+{{!-- <form action="organic-event/edit/{{_id}}" method="post">
+    <button type="submit">Edit</button>
+</form> --}}
+
+<a href="/organic-event/edit/{{_id}}">Edit this Event</a>
+
+<form action="/organic-event/delete/{{_id}}" method="post">
+    <button type="submit">Delete</button>
+</form>
