@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     
     axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TM_KEY}&locale=*&countryCode=PT`)
     .then(responseFromApi => {
-        console.log(responseFromApi.data)
+        /* console.log(responseFromApi.data) */
         res.render('./events/localEvents.hbs', {data: responseFromApi.data})
     })
     .catch(error => console.log(error))

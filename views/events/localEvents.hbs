@@ -3,8 +3,8 @@
 {{#each data._embedded.events}}
 <hr />
 <h1>{{this.name}}</h1>
-<img src="{{images.url}}" alt="image of the event">
+<img src="{{images.3.url}}" alt="image of the event">
 <p>date: {{dates.start.localDate}}</p>
-<a href='{{url}}'>See more</a>
+<a href='{{url}}' target="_blank">See more</a>
 <hr />
 {{/each}}
