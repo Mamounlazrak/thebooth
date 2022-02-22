@@ -5,27 +5,68 @@ const User = require("../models/User.model");
 const fileUploader = require('../config/cloudinary.config');
 
 router.post('/onboarding', fileUploader.single('profile_picture'), (req, res, next) => {
-    const {location, music_genre, fav_artist} = req.body;
-    console.log(location);
-    console.log(music_genre);
-    console.log(fav_artist);
+    const {firstName, lastName, location, genres, favArtist} = req.body;
+
     if(req.file) {
+        User.findByIdAndUpdate(req.app.locals.user._id, {firstName, lastName, location, avatar: req.file.path, genres, favArtist})
+        .then(() => {
+            return User.findById(req.app.locals.user._id)
+           })
+      .then ((updatedUser) => {
+                req.session.user = updatedUser;  
+                res.redirect('/');
+            })
 
-        User.findByIdAndUpdate(req.app.locals.user._id, {location, avatar: req.file.path, genres: music_genre, favArtist: fav_artist})
-          .then(() => {
-              console.log('hey');
-            res.redirect(`/home/${req.app.locals.user._id}`);
-          })
-          .catch((err) => console.log(err));
+        .catch((err) => console.log(err));
     } else {
-
-        User.findByIdAndUpdate(req.app.locals.user._id, {location, genres: music_genre, favArtist: fav_artist})
+        User.findByIdAndUpdate(req.app.locals.user._id, {firstName, lastName, location, genres, favArtist})
           .then(() => {
-              console.log('hey');
-            res.redirect(`/home/${req.app.locals.user._id}`);
-          })
+              return User.findById(req.app.locals.user._id)
+             })
+        .then ((updatedUser) => {
+                  req.session.user = updatedUser;  
+                  res.redirect('/');
+              })
+
           .catch((err) => console.log(err));
     }
-  })
+  });
+
+router.get('/profile', (req, res, next) => {
+    res.render('user/profile');
+})
+
+router.get('/edit', (req, res, next) => {
+    res.render('user/edit');
+})
+
+router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) => {
+    const {firstName, lastName, location, genres, favArtist} = req.body;
+
+    if(req.file) {
+        User.findByIdAndUpdate(req.app.locals.user._id, {firstName, lastName, location, avatar: req.file.path, genres, favArtist})
+        .then(() => {
+            return User.findById(req.app.locals.user._id)
+           })
+      .then ((updatedUser) => {
+                req.session.user = updatedUser;  
+                res.redirect('/');
+            })
+
+        .catch((err) => console.log(err));
+    } else {
+        User.findByIdAndUpdate(req.app.locals.user._id, {firstName, lastName, location, genres, favArtist})
+          .then(() => {
+              return User.findById(req.app.locals.user._id)
+             })
+        .then ((updatedUser) => {
+                  req.session.user = updatedUser;  
+                  res.redirect('/');
+              })
+
+          .catch((err) => console.log(err));
+    }
+  });
+
 
   module.exports = router;

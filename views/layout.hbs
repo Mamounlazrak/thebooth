@@ -26,6 +26,9 @@
 
         
         {{#if user}}
+         <li id='to-left'>
+          <p><a href='/user/profile'>Profile</a></p>
+        </li>
         <form action='/auth/logout' method='post'>
           <button>Logout</button></form>
          {{/if}}
