@@ -5,14 +5,14 @@ const User = require('../models/User.model');
 const OrganicEvents = new Schema(
   {
     title: { type: String, required: true},
-    date: {type: Number, required: true},
-    eventCreater: {type: Schema.Types.ObjectId, ref: 'User' },
-    location: {City: String, Venue: String, required: true},
+    date: {type: String, required: true},
+    eventCreator: {type: Schema.Types.ObjectId, ref: 'User' },
+    location: {type: String, required: true},
     duration: Number,
-    Genre: { type: String, required: true},
+    genre: { type: String, required: true},
     performingArtist: String,
     description: { type: String, required: true},
-    entry: { type: String, required: true},
+    entry: { type: String},
     picture: { type: String, default: 'images/default-avatar.png'
     },
     attendees: [],

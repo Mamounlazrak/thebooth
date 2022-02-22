@@ -1,0 +1,8 @@
+<h2>Events</h2>
+
+<ul>
+    {{#each events}}
+        <li>{{title}} by: {{eventCreator.username}}</li>
+        <a href="/organic-event/{{_id}}">Details</a>
+    {{/each}}
+</ul>

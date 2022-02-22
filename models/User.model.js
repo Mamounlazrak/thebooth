@@ -17,7 +17,7 @@ const userSchema = new Schema(
     password: { type: String, required: true
     },
     connections: [],
-    organicEvents: [],
+    organicEvents: [{type: Schema.Types.ObjectId, ref: 'OrgEvents' }],
     genres: { type: String},
     favArtist: { type: String },
     festivals: { type: String },

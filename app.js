@@ -44,6 +44,9 @@ app.use("/auth", authRoutes);
 const userRoutes = require("./routes/user");
 app.use("/user", userRoutes);
 
+const orgEventsRoutes = require("./routes/organic-event")
+app.use("/organic-event", orgEventsRoutes);
+
 const apiEvents = require("./routes/APIevents");
 app.use("/apievents", apiEvents);
 
