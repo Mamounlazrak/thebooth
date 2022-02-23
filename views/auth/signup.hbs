@@ -1,13 +1,26 @@
-<form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
 
-   <button type="submit">Submit</button>
-</form>
+<div class="container-signup">
+
+   <div class="text-container">
+      <h2>Sign up to the booth!</h2>
+      <p>Pick a username and a password</p>
+   </div>
+
+   <div class="form-container">
+      <form action="/auth/signup" method="POST">
+         <label> Username
+            <input type="text" name="username">
+         </label>
+         <label> Password
+            <input type="password" name="password">
+         </label>
+         <br>
+         <button type="submit" class="button-signup">Signup</button>
+      </form>
+   </div>
+
+</div>
+
 
 {{#if errorMessage}}
    {{errorMessage}}

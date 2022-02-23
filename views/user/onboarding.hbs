@@ -1,25 +1,38 @@
-<form action="/user/onboarding" method="POST" enctype="multipart/form-data">
-   <label> First name
-      <input type="text" name="firstName">
-   </label>
-   <label> Last name
-      <input type="text" name="lastName">
-   </label>
-   <label> Profile picture
-      <input type="file" name="profile_picture">
-   </label>
-   <label> Location
-      <input type="text" name="location">
-   </label>
-   <label> Music genre
-      <input type="text" name="genres">
-   </label>
-   <label> Favourite artist
-      <input type="text" name="favArtist">
-   </label>   
+<div class="container-onboarding">
 
-   <button type="submit">Submit</button>
-</form>
+   <div class="text-container">
+      <h2>Tell us a bit about yourself</h2>
+      <p>It will allow us to improve your experience</p>
+   </div>
+
+   <div class="form-container">
+      <form action="/user/onboarding" method="POST" enctype="multipart/form-data">
+         <label> First name
+            <input type="text" name="firstName">
+         </label>
+         <label> Last name
+            <input type="text" name="lastName">
+         </label>
+         <label> Profile picture
+            <input type="file" name="profile_picture">
+         </label>
+         <label> Location
+            <input type="text" name="location">
+         </label>
+         <label> Music genre
+            <input type="text" name="genres">
+         </label>
+         <label> Favourite artist
+            <input type="text" name="favArtist">
+         </label>   
+         <br>
+         <button type="submit" class="button-signup">Get in the booth</button>
+      </form>
+   </div>
+
+</div>
+
+
 
 {{#if errorMessage}}
    {{errorMessage}}

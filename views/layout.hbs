@@ -6,47 +6,60 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}</title>
+      <link rel="stylesheet" media="(media-features)" href="/stylesheets/styles.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="/stylesheets/style.css" />
    </head>
 
   <body>
-    <nav>
-      <ul>
-        <li id='to-left'>
-          <p><a href='/'>Home</a></p>
+
+    <nav class="navbar-top">
+
+      <ul class="navbar-home">
+        <li class="navbar-item">
+          <p><a href='/'>Home (logo)</a></p>
         </li>
+      </ul>
+
+      <ul class="navbar-buttons">
         {{#unless user}}
-        <li id='to-right'>
-          <p><a href='/auth/signup'>Signup</a></p>
-        </li>
-        <li id='to-right'>
-          <p><a href='/auth/login'>Login</a></p>
+        <li class="navbar-item">
+          <p><a href='/auth/signup' class="primary-button">Signup</a></p>
+        </li> 
+        <li class="navbar-item">
+          <p><a href='/auth/login' class="secondary-button">Login</a></p>
         </li>
         {{/unless}}
-
-        
-        {{#if user}}
-         <li id='to-left'>
-          <p><a href='/user/profile'>Profile</a></p>
-        </li>
-         <li id='to-left'>
-          <p><a href='/organic-event/create'>Create New Event</a></p>
-        </li>
-         <li id='to-left'>
-          <p><a href='/organic-event/my-list'>Your Events</a></p>
-        </li>
-        <li id='to-left'>
-          <p><a href='/organic-event/full-list'>All Events</a></p>
-        </li>
-        <form action='/auth/logout' method='post'>
-          <button>Logout</button></form>
-         {{/if}}
       </ul>
-    </nav> 
+    </nav>
+    
+    
 
 
 
     {{{body}}}
+
+    <nav class="navbar-bottom">
+      <ul>
+        {{#if user}}
+            <li>
+            <p><a href='/user/profile'>Profile</a></p>
+         </li>
+            <li>
+            <p><a href='/organic-event/create'>Create New Event</a></p>
+         </li>
+            <li>
+            <p><a href='/organic-event/my-list'>Your Events</a></p>
+         </li>
+         <li>
+            <p><a href='/organic-event/full-list'>All Events</a></p>
+         </li>
+         <form action='/auth/logout' method='post'>
+            <button>Logout</button></form>
+         {{/if}}
+      </ul>
+    </nav>
+
 
     <script src='/js/script.js'></script>
   </body>

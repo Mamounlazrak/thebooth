@@ -1,26 +1,40 @@
-<form action="/organic-event/create" method="POST" enctype="multipart/form-data">
-   <label> Title
-      <input type="text" name="title">
-   </label>
-   <label> Date
-      <input type="date" name="date">
-   </label>
-    <input type="hidden" name="eventCreator" value="{{user._id}}">
-   <label> Image
-      <input type="file" name="eventImage">
-   </label>
-   <label> Location
-      <input type="text" name="location">
-   </label>
-   <label> Music genre
-      <input type="text" name="genre">
-   </label>
-   <label> Description
-      <textarea type="text" name="description"> </textarea>
-   </label>   
+<div class="container-create-event">
 
-   <button type="submit">Submit</button>
-</form>
+   <div class="text-container">
+      <h2>Create an event</h2>
+      <p>Get ready to receive people in your booth</p>
+   </div>
+
+   <div class="form-container">
+      <form action="/organic-event/create" method="POST" enctype="multipart/form-data">
+         <label> Title
+            <input type="text" name="title">
+         </label>
+         <label> Date
+            <input type="date" name="date">
+         </label>
+         <input type="hidden" name="eventCreator" value="{{user._id}}">
+         <label> Image
+            <input type="file" name="eventImage">
+         </label>
+         <label> Location
+            <input type="text" name="location">
+         </label>
+         <label> Music genre
+            <input type="text" name="genre">
+         </label>
+         <label> Description
+            <textarea type="text" name="description"> </textarea>
+         </label>   
+         <br>
+         <button type="submit" class="button-signup">Create event</button>
+      </form>
+   </div>
+
+</div>
+
+
+
 
 {{#if errorMessage}}
    {{errorMessage}}
