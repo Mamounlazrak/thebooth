@@ -2,14 +2,8 @@
 
 <ul>
     {{#each events}}
-        {{!-- {{#ifEquals user._id eventCreator._id}} --}}
         <li>{{title}} by: {{eventCreator.username}}</li>
         <a href="/organic-event/my-list/{{_id}}">Details</a>
-        {{!-- {{/ifEquals}} --}}
     {{/each}}
 </ul>
 
-
-{{!-- {{#ifEquals author._id user._id}}
-    Your HTML here
-{{/ifEquals}} --}}
