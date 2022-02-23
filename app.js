@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
 const projectName = "thebooth";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.title = `${capitalized(projectName)}`;
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
@@ -48,6 +48,9 @@ app.use("/organic-event", orgEventsRoutes);
 
 const apiEvents = require("./routes/APIevents");
 app.use("/apievents", apiEvents);
+
+const connectionsRoutes = require("./routes/connections");
+app.use("/explore", connectionsRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

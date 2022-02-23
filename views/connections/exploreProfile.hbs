@@ -1,0 +1,20 @@
+{{!-- this page will be used to display a user info from the explore page --}}
+<hr>
+<h1>{{firstName}} || {{lastName}}</h1>
+<hr>
+<img src="{{avatar}}" alt="image of user avatar">
+{{!-- <h2>{{userinfo.firstName}}</h2> --}}
+<h3>{{location}}</h3>
+
+<form action="/explore/profile/{{_id}}" method="post">
+<button type="submit" {{!-- value="{{_id}}" --}}>Follow</button>
+</form>
+
+<p>{{description}}</p>
+<p>{{genres}}</p>
+<p>{{favArtist}}</p>
+<p>{{festivals}}</p>
+<p>{{organicEvents}}</p>
+<hr>
+<a href="/explore">back to explore</a>
+

@@ -1,0 +1,10 @@
+{{!-- search and add new people to your friends page --}}
+<hr>
+<h1>mates rates</h1>
+<hr>
+{{#each users}}
+<h2>{{username}}</h2>
+<p>{{location}}</p>
+<img src="{{avatar}}" alt="user avatar picture">
+<a href="explore/profile/{{_id}}">Jam</a>
+{{/each}}
