@@ -6,15 +6,14 @@ const OrganicEvents = new Schema(
   {
     title: { type: String, required: true},
     date: {type: String, required: true},
-    eventCreator: {type: Schema.Types.ObjectId, ref: 'User' },
+    eventCreator: {type: Schema.Types.ObjectId, ref: 'User'},
     location: {type: String, required: true},
     duration: Number,
     genre: { type: String, required: true},
     performingArtist: String,
     description: { type: String, required: true},
     entry: { type: String},
-    picture: { type: String, default: 'images/default-avatar.png'
-    },
+    picture: { type: String, default: 'images/default-avatar.png'},
     attendees: [],
     comments: [], 
   },

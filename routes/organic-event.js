@@ -1,8 +1,6 @@
 const router = require('express').Router();
-
 const User = require('../models/User.model');
 const OrgEvents = require('../models/OrganicEvents.model');
-
 const fileUploader = require('../config/cloudinary.config');
 
 

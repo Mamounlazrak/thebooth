@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/User.model");
-
 const fileUploader = require('../config/cloudinary.config');
+
 
 router.post('/onboarding', fileUploader.single('profile_picture'), (req, res, next) => {
     const {firstName, lastName, location, genres, favArtist} = req.body;
@@ -67,7 +67,6 @@ router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) =>
           .catch((err) => console.log(err));
     }
   });
-
 
 
   module.exports = router;
