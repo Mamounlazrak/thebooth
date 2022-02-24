@@ -13,53 +13,34 @@
 
   <body>
 
-    <nav class="navbar-top">
+{{!-- logo and !user navigation section --}}
+<div class="branding">
+  {{#unless user}}
+  <ul class='btn'><a href='/auth/signup'>Signup</a></ul>
+  <ul class='btn'><a href='/auth/login'>Login</a></ul>
+  {{/unless}}
+  <ul class='btn'><a href='/'>Logo</a></ul>
+</div>
 
-      <ul class="navbar-home">
-        <li class="navbar-item">
-          <p><a href='/'>Home (logo)</a></p>
-        </li>
-      </ul>
+{{!-- logout button that will be moved from layouts and inserted in the profile page --}}
+<form action='/auth/logout' method='post'><button>Logout</button></form>
 
-      <ul class="navbar-buttons">
-        {{#unless user}}
-        <li class="navbar-item">
-          <p><a href='/auth/signup' class="primary-button">Signup</a></p>
-        </li> 
-        <li class="navbar-item">
-          <p><a href='/auth/login' class="secondary-button">Login</a></p>
-        </li>
-        {{/unless}}
-      </ul>
-    </nav>
-    
-    
-
-
-
+{{!-- main section which includes the body component --}}
+  <main>
     {{{body}}}
+  </main>
+  {{#if user}}
 
-    <nav class="navbar-bottom">
-      <ul>
-        {{#if user}}
-            <li>
-            <p><a href='/user/profile'>Profile</a></p>
-         </li>
-            <li>
-            <p><a href='/organic-event/create'>Create New Event</a></p>
-         </li>
-            <li>
-            <p><a href='/organic-event/my-list'>Your Events</a></p>
-         </li>
-         <li>
-            <p><a href='/organic-event/full-list'>All Events</a></p>
-         </li>
-         <form action='/auth/logout' method='post'>
-            <button>Logout</button></form>
-         {{/if}}
-      </ul>
-    </nav>
-
+{{!-- main navigation component --}}
+  <div class="navbar">
+    <ul class='nav'><a href='/apievents'>Events</a></ul>
+    <ul class='nav'><a href='/organic-event/full-list'>allEvents</a></ul>
+    <ul class='nav'><a href='/explore'>Explore</a></ul>
+    <ul class='nav'><a href='/organic-event/create'>Create Event</a></ul>
+    <ul class='nav'><a href='/organic-event/my-list'>Your Events</a></ul>
+    <ul class='nav'><a href='/user/profile'>Profile</a></ul>
+  </div>
+  {{/if}}
 
     <script src='/js/script.js'></script>
   </body>
