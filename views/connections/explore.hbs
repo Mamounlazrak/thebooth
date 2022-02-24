@@ -1,11 +1,16 @@
 {{!-- search and add new people to your friends page --}}
-<hr>
-<h1>find like minded people</h1>
-<hr>
-{{#each users}}
-<hr>
-<img src="{{avatar}}" alt="user avatar picture" class="profile-picture">
-<h2>{{username}}</h2>
-<p>{{location}}</p>
-<a href="explore/profile/{{_id}}">look within</a>
-{{/each}}
+<div class="events">
+
+    <h1>find like minded people</h1>
+    <hr>
+
+    {{#each users}}
+    <div class="eventcard">
+    <img src="{{avatar}}" alt="user avatar picture" class="profile-picture">
+    <h2>{{username}}</h2>
+    <p>{{location}}</p>
+    <a href="explore/profile/{{_id}}" class="btn">make a connection</a>
+    </div>
+    {{/each}}
+
+</div>
