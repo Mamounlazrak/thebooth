@@ -138,6 +138,7 @@ main{
   display: flex;
   flex-direction: column;
   /* max-width: 90vw; */
+  padding: 0.5rem;
   margin: 3rem auto;
   border: 1px solid var(--dark);
   border-radius: 4px;
@@ -176,14 +177,14 @@ main{
   color: var(--dark);
 }
 
-
- /*  .container-create-event {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 270px;
-  } */
+/* organic events page section */
+.container-create-event{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 270px;
+  margin-top: 20px;
+}
 
 
 

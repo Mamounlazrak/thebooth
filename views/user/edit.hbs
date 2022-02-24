@@ -1,27 +1,29 @@
-<form action="/user/edit" method="POST" enctype="multipart/form-data">
-   <label> First name
-      <input type="text" name="firstName" value="{{user.firstName}}">
-   </label>
-   <label> Last name
-      <input type="text" name="lastName" value="{{user.lastName}}">
-   </label>
-   <label> Profile picture
-      <input type="file" name="profile_picture">
-   </label>
-   <label> Location
-      <input type="text" name="location" value="{{user.location}}">
-   </label>
-   <label> Music genre
-      <input type="text" name="genres" value="{{user.genres}}">
-   </label>
-   <label> Favourite artist
-      <input type="text" name="favArtist" value="{{user.favArtist}}">
-   </label>
-
-   
-
-   <button type="submit">Submit</button>
-</form>
+{{!-- profile editing page --}}
+<div class="profile">
+   <form action="/user/edit" method="POST" enctype="multipart/form-data">
+      <label> First name
+         <input type="text" name="firstName" value="{{user.firstName}}">
+      </label>
+      <label> Last name
+         <input type="text" name="lastName" value="{{user.lastName}}">
+      </label>
+      <label> Profile picture
+         <input type="file" name="profile_picture">
+      </label>
+      <label> Location
+         <input type="text" name="location" value="{{user.location}}">
+      </label>
+      <label> Music genre
+         <input type="text" name="genres" value="{{user.genres}}">
+      </label>
+      <label> Favourite artist
+         <input type="text" name="favArtist" value="{{user.favArtist}}">
+      </label>
+</div>
+<div class="logout">
+      <button type="submit" class="btn">Update info</button>
+   </form>
+</div>
 
 {{#if errorMessage}}
    {{errorMessage}}
