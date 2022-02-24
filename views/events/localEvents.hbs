@@ -1,10 +1,15 @@
 {{!-- api generated events page --}}
-<h1>test print</h1>
+<div class="events">
+<h1>Events near you</h1>
+
 {{#each data._embedded.events}}
-<hr />
-<h1>{{this.name}}</h1>
+<div class="eventcard">
+<h2>{{this.name}}</h2>
 <img src="{{images.3.url}}" alt="image of the event">
 <p>date: {{dates.start.localDate}}</p>
-<a href='{{url}}' target="_blank">See more</a>
-<hr />
+<a href='{{url}}' class="btn" target="_blank">See more</a>
+</div>
 {{/each}}
+
+
+</div>

@@ -134,21 +134,41 @@ main{
 }
 
 /* profile page section */
+.profile-picture {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+}
+
+/* api events section */
+.events{
+  display: grid;
+  grid-auto-rows: auto;
+  gap: 1rem;
+}
+
+.eventcard{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+}
+
+.eventcard a{
+  text-decoration: none;
+  color: var(--dark);
+}
 
 
-
-  .container-create-event {
+ /*  .container-create-event {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 270px;
-  }
+  } */
 
 
 
-  .profile-picture {
-    height: 8rem;
-    width: 8rem;
-    border-radius: 50%;
-  }
+ 
