@@ -49,7 +49,7 @@ app.use("/organic-event", orgEventsRoutes);
 const apiEvents = require("./routes/APIevents");
 app.use("/apievents", apiEvents);
 
-const connectionsRoutes = require("./routes/connections");
+const connectionsRoutes = require("./routes/allconnections");
 app.use("/explore", connectionsRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
