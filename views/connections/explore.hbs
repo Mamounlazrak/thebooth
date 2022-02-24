@@ -1,10 +1,11 @@
 {{!-- search and add new people to your friends page --}}
 <hr>
-<h1>mates rates</h1>
+<h1>find like minded people</h1>
 <hr>
 {{#each users}}
+<hr>
+<img src="{{avatar}}" alt="user avatar picture">
 <h2>{{username}}</h2>
 <p>{{location}}</p>
-<img src="{{avatar}}" alt="user avatar picture">
-<a href="explore/profile/{{_id}}">Jam</a>
+<a href="explore/profile/{{_id}}">look within</a>
 {{/each}}

@@ -22,10 +22,9 @@ router.get("/profile/:id", (req, res, next) => {
 
 router.post("/profile/:id", (req, res, next) => {
     const { id } = req.params;
-   //const {  } = req.body;
-   console.log(req.app.locals.user._id);
+   //console.log(req.app.locals.user._id);
    User.findByIdAndUpdate(req.app.locals.user._id, {$push : {connections: id}})
-    .then( userfollowed => {console.log(userfollowed); res.redirect('/');})
+    .then( userfollowed => res.redirect(`/explore/profile/${id}`))
     .catch(error => next(error));
 });
   
