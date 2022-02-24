@@ -1,17 +1,19 @@
 {{!-- <h2>Your Profile</h2> --}}
-<div>
-    <img src="{{user.avatar}}" alt="Profile picture" class="profile-picture">
-    <h3>{{user.firstName}} {{user.lastName}}</h3>
+<div class="profile">
+
+    <div class="profilecard">
+        <img src="{{user.avatar}}" alt="Profile picture" class="profile-picture">
+        <h3>{{user.firstName}} {{user.lastName}}</h3>
+        <p>Location: {{user.location}}</p>
+        <p>Favourite artist: {{user.favArtist}}</p>
+        <p>Music genre: {{user.genres}}</p>
+    </div>
+
 </div>
 
-<div>
-    <p>Location: {{user.location}}</p>
-    <p>Favourite artist: {{user.favArtist}}</p>
-    <p>Music genre: {{user.genres}}</p>
+<div class="logout">
+    <form action='/auth/logout' method='post'>
+        <button class="btn">Logout</button>
+    </form>
+    <a href="/user/edit" class="btn">Edit profile</a>
 </div>
-
-
-<a href="/user/edit">Edit profile</a>
-<form action='/auth/logout' method='post'>
-    <button>Logout</button>
-</form>
