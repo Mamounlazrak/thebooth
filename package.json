@@ -1,9 +1,6 @@
 {
   "name": "thebooth",
   "version": "0.0.0",
-  "engines": {
-    "node": "12.x"
-  },
   "private": true,
   "scripts": {
     "start": "node server.js",
@@ -19,6 +16,7 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
+    "mongodb": "^4.4.0",
     "mongoose": "^6.2.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
