@@ -64,6 +64,7 @@ main{
   background-color: var(--dark);
   color: var(--light);
 }
+
 .branding a:hover{
   /* background-color: var(--accent);
   color: var(--light); */
@@ -99,29 +100,42 @@ main{
   color: var(--dark);
 }
 
+/* landing page section */
+.hero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+  margin: 5rem auto;
+  max-width: 60vw;
+  text-align: center;
+}
+
+/* onboarding page */
+.onboarding{
+  display: flex;
+  flex-direction: column;
+  margin: 9rem auto;
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+}
+
+.onboardingtitle{
+  display: flex;
+  text-align: center;
+}
+
+.onboardingform{
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* profile page section */
 
 
-
-  .hero {
-    height: 150px;
-    margin-bottom: 24px;
-  }
-
-  .container-signup {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 170px;
-  }
-
-  .container-onboarding {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 270px;
-  }
 
   .container-create-event {
     margin-top: 20px;
