@@ -11,7 +11,19 @@ router.get('/create', (req, res, next) => {
 router.post('/create', fileUploader.single('eventImage'), (req, res, next) => {
     const {title, date, eventCreator, location, genre, description} = req.body;
     if(req.file) {
-
+        OrgEvents.create({title, date, eventCreator, picture: req.file.path, location, genre, description})
+            .then((createdEvent) => {
+                console.log(createdEvent);
+                return User.findByIdAndUpdate(req.app.locals.user._id, { $push: {organicEvents: createdEvent._id}});
+            })
+            .then(() => {
+                return User.findById(req.app.locals.user._id)
+            })
+            .then((updatedUser) => {
+                req.session.user = updatedUser
+                res.redirect('/organic-event/my-list')
+            })
+            .catch((err) => next(err));
     } else {
         OrgEvents.create({title, date, eventCreator, location, genre, description})
             .then((createdEvent) => {
