@@ -1,18 +1,20 @@
 {{!-- this page will be used to display a user info from the explore page --}}
 <div class="profile">
-    <h1>{{firstName}} || {{lastName}}</h1>
-    <img src="{{avatar}}" alt="image of user avatar">
-    <h3>{{location}}</h3>
-    <p>{{description}}</p>
-    <p>{{genres}}</p>
-    <p>{{favArtist}}</p>
-    <p>{{festivals}}</p>
-    <p>{{organicEvents}}</p>
+    <h1>{{userinfo.firstName}} || {{userinfo.lastName}}</h1>
+    <img src="{{userinfo.avatar}}" alt="image of user avatar" class="profile-picture">
+    <h3>{{userinfo.location}}</h3>
+    <p>{{userinfo.description}}</p>
+    <p>{{userinfo.genres}}</p>
+    <p>{{userinfo.favArtist}}</p>
+    <p>{{userinfo.festivals}}</p>
+    <p>{{userinfo.organicEvents}}</p>
 </div>
 
 <div class="logout">
     <a href="/explore" class="btn">back to explore</a>
+    {{#unless following}}
     <form action="/explore/profile/{{_id}}" method="post">
     <button type="submit" class="btn">Follow</button>
     </form>
+    {{/unless}}
 </div>

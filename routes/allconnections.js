@@ -13,9 +13,13 @@ router.get("/", (req, res, next) => {
 
 router.get("/profile/:id", (req, res, next) => {
     const { id } = req.params;
+    let following = false;
+
+
     User.findById(id).then( userinfo => {
-       // console.log(userinfo);
-        res.render('./connections/exploreProfile.hbs', userinfo);
+
+        following = req.app.locals.user.connections.includes(id);
+        res.render('./connections/exploreProfile.hbs', {userinfo, following});
     })
     .catch(error => console.log(error));
 });
