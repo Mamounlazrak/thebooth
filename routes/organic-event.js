@@ -99,4 +99,13 @@ router.post('/delete/:eventId', (req, res, next) => {
         .catch((err) => next(err));
 })
 
+router.get('/details/:id', (req, res, next) => {
+    const {eventId} = req.params;
+    OrgEvents.findOne(eventId)
+    .then ((foundEvent) => {
+        res.render('organic-event/details', foundEvent)
+    })
+    .catch ((err) => next(err))
+})
+
 module.exports = router;

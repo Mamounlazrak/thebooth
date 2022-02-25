@@ -52,7 +52,7 @@ router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) =>
            })
       .then ((updatedUser) => {
                 req.session.user = updatedUser;  
-                res.redirect('/');
+                res.redirect('/user/profile');
             })
 
         .catch((err) => console.log(err));
@@ -63,7 +63,7 @@ router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) =>
              })
         .then ((updatedUser) => {
                   req.session.user = updatedUser;  
-                  res.redirect('/');
+                  res.redirect('/user/profile');
               })
 
           .catch((err) => console.log(err));
