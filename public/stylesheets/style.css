@@ -117,19 +117,21 @@ main{
 .onboarding{
   display: flex;
   flex-direction: column;
-  margin: 9rem auto;
+  margin: 3rem auto;
+  text-align: center;
+  flex-direction: column;
   border: 1px solid var(--dark);
   border-radius: 4px;
+  margin: 3rem auto;
+
 }
 
-.onboardingtitle{
-  display: flex;
-  text-align: center;
-}
 
 .onboardingform{
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  padding: 0.5rem;
+  text-align: left;
 
 }
 
