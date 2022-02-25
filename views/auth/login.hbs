@@ -1,3 +1,12 @@
+<div class="onboarding">
+
+   <div class="onboardingtitle">
+      <h2>Welcome back to the Booth!</h2>
+      <p>Log in to see what's happening</p>
+   </div>
+
+   <div class="onboardingform">
+
 <form action="/auth/login" method="POST">
    <label> Username
       <input type="text" name="username">
@@ -5,9 +14,14 @@
    <label> Password
       <input type="password" name="password">
    </label>
+</div>
+</div>
 
-   <button type="submit">Submit</button>
+<div class="logout">
+   <button type="submit" class="btn">Submit</button>
 </form>
+</div>
+
 
 {{#if errorMessage}}
    {{errorMessage}}

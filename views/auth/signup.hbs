@@ -1,12 +1,12 @@
 
-<div class="container-signup">
+<div class="onboarding">
 
-   <div class="text-container">
+   <div class="onboardingtitle">
       <h2>Sign up to the booth!</h2>
       <p>Pick a username and a password</p>
    </div>
 
-   <div class="form-container">
+   <div class="onboardingform">
       <form action="/auth/signup" method="POST">
          <label> Username
             <input type="text" name="username">
@@ -15,11 +15,14 @@
             <input type="password" name="password">
          </label>
          <br>
-         <button type="submit" class="button-signup">Signup</button>
+   </div>
+</div>
+
+<div class="logout">
+         <button type="submit" class="btn">Signup</button>
       </form>
    </div>
 
-</div>
 
 
 {{#if errorMessage}}

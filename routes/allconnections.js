@@ -19,6 +19,9 @@ router.get("/profile/:id", (req, res, next) => {
     User.findById(id).then( userinfo => {
 
         following = req.app.locals.user.connections.includes(id);
+        console.log(following);
+        console.log("hey")
+        console.log(req.app.locals.user.connections);
         res.render('./connections/exploreProfile.hbs', {userinfo, following});
     })
     .catch(error => console.log(error));
@@ -28,13 +31,18 @@ router.post("/profile/:id", (req, res, next) => {
     const { id } = req.params;
    //console.log(req.app.locals.user._id);
    User.findByIdAndUpdate(req.app.locals.user._id, {$push : {connections: id}})
-    .then( (userfollowed) => {
+    .then( () => {
+        return User.findById(req.app.locals.user._id)
+    })
+    .then((updatedUser) => {
+
         console.log("hey");
-        console.log(userfollowed);
+        console.log();
+        req.session.user = updatedUser;
         res.redirect("/explore");
     })
     .catch(error => next(error));
-});
+    })
   
 
 module.exports = router;

@@ -16,7 +16,7 @@ router.post('/onboarding', fileUploader.single('profile_picture'), (req, res, ne
            })
       .then ((updatedUser) => {
                 req.session.user = updatedUser;  
-                res.redirect('/');
+                res.redirect('/user/home');
             })
 
         .catch((err) => console.log(err));
@@ -27,7 +27,7 @@ router.post('/onboarding', fileUploader.single('profile_picture'), (req, res, ne
              })
         .then ((updatedUser) => {
                   req.session.user = updatedUser;  
-                  res.redirect('/');
+                  res.redirect('/user/home');
               })
 
           .catch((err) => console.log(err));
@@ -70,26 +70,25 @@ router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) =>
     }
   });
 
-//   router.get('/home', (req, res, next) => {
-//       let apiEvents = null;
-//       let orgEvents = null;
-//     axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TM_KEY}&locale=*&countryCode=PT`)
-//     .then ((responseFromApi) => {
-//         apiEvents = responseFromApi;
-//     })
-//     .then (() => {
-//         org events = OrgEvents.find()
-//         .populate('eventCreator')
-//         .then((eventsList) => {
-//             res.render('organic-event/full-list', {events: eventsList})
-//         })
-//         .catch((err) => next(err));
-// })
+  router.get('/home', (req, res, next) => {
+      let apiEvents = null;
+      let orgEvents = null;
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TM_KEY}&locale=*&countryCode=PT`)
+    .then ((responseFromApi) => {
+        apiEvents = responseFromApi.data;
+    })
+    .then (() => {
+        return OrgEvents.find()
+        .populate('eventCreator')
+            console.log(orgEvents)
+    })
+    .then((foundEvents) => {
+            orgEvents = foundEvents
+            res.render('user/home', {apiEvents, orgEvents})
+    })
+    .catch((err) => next(err));
+    })
 
-//     })
-
-
-//   })
 
 
   module.exports = router;

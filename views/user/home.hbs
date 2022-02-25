@@ -1,8 +1,16 @@
-{{!-- api generated events page --}}
+<h2>Events created by users</h2>
+
+<ul>
+    {{#each orgEvents}}
+        <li>{{title}} by: {{eventCreator.username}}</li>
+        <a href="/organic-event/{{_id}}">Details</a>
+    {{/each}}
+</ul>
+
 <div class="events">
 <h2>Events near you - from TicketMaster</h2>
 
-{{#each data._embedded.events}}
+{{#each apiEvents._embedded.events}}
 <div class="eventcard">
 <h2>{{this.name}}</h2>
 <img src="{{images.3.url}}" alt="image of the event">
