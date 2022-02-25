@@ -23,7 +23,7 @@ router.post('/create', fileUploader.single('eventImage'), (req, res, next) => {
             })
             .then((updatedUser) => {
                 req.session.user = updatedUser
-                res.redirect('/user/profile')
+                res.redirect('/organic-event/my-list')
             })
             .catch((err) => next(err));
     }

@@ -13,7 +13,7 @@
 <div class="logout">
     <a href="/explore" class="btn">back to explore</a>
     {{#unless following}}
-    <form action="/explore/profile/{{_id}}" method="post">
+    <form action="/explore/profile/{{userinfo._id}}" method="post">
     <button type="submit" class="btn">Follow</button>
     </form>
     {{/unless}}

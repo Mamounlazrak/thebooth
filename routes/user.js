@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/User.model");
+const axios = require('axios').default;
+const OrgEvents = require('../models/OrganicEvents.model');
 const fileUploader = require('../config/cloudinary.config');
 
 
@@ -67,6 +69,27 @@ router.post('/edit', fileUploader.single('profile_picture'), (req, res, next) =>
           .catch((err) => console.log(err));
     }
   });
+
+//   router.get('/home', (req, res, next) => {
+//       let apiEvents = null;
+//       let orgEvents = null;
+//     axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TM_KEY}&locale=*&countryCode=PT`)
+//     .then ((responseFromApi) => {
+//         apiEvents = responseFromApi;
+//     })
+//     .then (() => {
+//         org events = OrgEvents.find()
+//         .populate('eventCreator')
+//         .then((eventsList) => {
+//             res.render('organic-event/full-list', {events: eventsList})
+//         })
+//         .catch((err) => next(err));
+// })
+
+//     })
+
+
+//   })
 
 
   module.exports = router;
